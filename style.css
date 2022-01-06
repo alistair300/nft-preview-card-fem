@@ -1,0 +1,128 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --time-text: hsl(215, 51%, 70%);
+  --currency-text: hsl(178, 100%, 50%);
+  --body-background: hsl(217, 54%, 11%);
+  --card-background: hsl(216, 50%, 16%);
+  --border-color: hsl(215, 32%, 27%);
+  --white: hsl(0, 0%, 100%);
+}
+
+body {
+  background-color: var(--body-background);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  font-family: 'Outfit', sans-serif;
+  color: #fff;
+  overflow-x: hidden;
+}
+
+a {
+  color: var(--white);
+  text-decoration: none;
+  transition: color 300ms ease-in-out;
+}
+
+a:hover {
+  color: var(--currency-text);
+}
+
+.card {
+  background-color: var(--card-background);
+  width: min(90%, 350px);
+  margin-inline: auto;
+  padding: 1.5rem;
+  border-radius: 20px;
+}
+
+.card__image {
+  border-radius: 20px;
+  overflow: hidden;
+  margin-bottom: clamp(1.38rem, 1.27rem + 0.54vw, 1.75rem);
+  cursor: pointer;
+  position: relative;
+}
+
+.card__image::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: hsla(178, 100%, 50%, 0.5);
+  background-image: url(./images/icon-view.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  transform: translateY(-100%);
+  transition: transform 300ms ease-in-out;
+}
+
+.card__image:hover::after {
+  transform: translateX(0);
+}
+
+.card__image img {
+  width: 100%;
+}
+
+.card h1 {
+  font-size: 1.5rem;
+  font-weight: 699;
+}
+
+.card > p {
+  margin-block: clamp(1.13rem, 1.09rem + 0.18vw, 1.25rem);
+  color: var(--time-text);
+  line-height: 1.5;
+  font-size: clamp(1rem, 0.96rem + 0.18vw, 1.13rem);
+}
+
+.card__info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.currency,
+.time {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 500;
+}
+
+.currency span {
+  color: var(--currency-text);
+  font-weight: 600;
+}
+
+.time span {
+  color: var(--time-text);
+}
+
+.card__creator {
+  margin-top: clamp(0.75rem, 0.61rem + 0.71vw, 1.25rem);
+  padding-top: 0.9375rem;
+  border-top: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  gap: 0.9375rem;
+}
+
+.card__creator img {
+  border-radius: 50%;
+  border: 2px solid var(--white);
+  width: 30px;
+}
+
+.card__creator p {
+  color: var(--time-text);
+}
